@@ -96,7 +96,7 @@ void app_main(void)
 {
     xTaskCreatePinnedToCore(vTaskBlink, "blink",2024,NULL,1,&controlador_t1,1);	//crearmos la tarea blink en core 1
     xTaskCreatePinnedToCore(vTaskADC, "adc",5024,NULL,1,&controlador_t2,1);
-    xTaskCreatePinnedToCore(vTaskInput, "button",5024,NULL,1,&controlador_t3,1);
+    xTaskCreatePinnedToCore(vTaskInput, "button",2024,NULL,1,&controlador_t3,1);
 
     //vTaskDelay(10000 / portTICK_PERIOD_MS);
     //vTaskDelete(controlador_t1);		//borramos la tarea blink
