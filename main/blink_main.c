@@ -81,11 +81,12 @@ void vTaskADC(void *vparameter){
 	//configuración del adc canal y resolución etc
 	adc1_config_channel_atten(ADC1_CHANNEL_4, ADC_ATTEN_DB_11); 		//canal 4 correspondiente al pin 32, nivel de atenuación es el valor del voltaje de ref maxímo en este caso el nivel 11 corresponde a un max de 3500mV
 	adc1_config_width(ADC_WIDTH_BIT_12);								//es al resulción del adc, en este caso de 12 bits
-
-	int lectura_dig=0;													//variable para guardar el valor del adc digital 0-4095
+	float lect_an=0;
+	int lect_dig=0;													//variable para guardar el valor del adc digital 0-4095
 	while(1){
-		lectura_dig=adc1_get_raw(ADC1_CHANNEL_4);
-		ESP_LOGI(TAG,"Lectura digital del adc: %i",lectura_dig);
+		lect_dig=adc1_get_raw(ADC1_CHANNEL_4);
+		lect_an=lect_dig*(3.3/4095);
+		ESP_LOGI(TAG,"ADC digital: %i, Correspondiente a: %f [V]",lect_dig,lect_an);
 		vTaskDelay(1000 / portTICK_PERIOD_MS);
 	}
 
