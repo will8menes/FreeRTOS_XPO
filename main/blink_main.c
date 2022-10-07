@@ -7,7 +7,7 @@
 #include "driver/adc.h"
 
 
-const char *TAG = "MAIN";	//message
+const char *TAG = "MAIN";	//message  hgh
 #define BLINK_GPIO 26		//salida para el led
 #define Button_GPIO 25		//entrada para el botton
 int contador_pulsos=0;		//contador de pulsos del boton
