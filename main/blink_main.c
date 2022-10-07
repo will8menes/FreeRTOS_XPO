@@ -76,7 +76,6 @@ void vTaskInput(void *pvParameters)
     }
 }
 
-
 void vTaskADC(void *vparameter){
 	//configuración del adc canal y resolución etc
 	adc1_config_channel_atten(ADC1_CHANNEL_4, ADC_ATTEN_DB_11); 		//canal 4 correspondiente al pin 32, nivel de atenuación es el valor del voltaje de ref maxímo en este caso el nivel 11 corresponde a un max de 3500mV
