@@ -29,11 +29,14 @@ void vTaskADC(void *pvParameters){
 	while(1){
 		lect_dig=adc1_get_raw(ADC1_CHANNEL_4);
 		lect_an=lect_dig*(3.3/4095);
-		//ESP_LOGI(tagADC,"ADC digital: %i, Correspondiente a: %f [V]",lect_dig,lect_an);
 
-		//enviamos el valor del adc al task blink
-		xQueueSend(local_queque,&lect_dig,pdMS_TO_TICKS(100));
-		ESP_LOGW(tagADC,"Dato enviado al blink: %d",lect_dig);
+		if(lect_an>2.5){
+			//enviamos el valor del adc al task blink
+			xQueueSend(local_queque,&lect_an,pdMS_TO_TICKS(100));
+			//ESP_LOGW(tagADC,"Dato enviado al blink: %d",lect_dig);
+		}else{
+			ESP_LOGW(tagADC,"Voltaje del ADC: %f",lect_an);
+		}
 		vTaskDelay(1000 / portTICK_PERIOD_MS);
 	}
 

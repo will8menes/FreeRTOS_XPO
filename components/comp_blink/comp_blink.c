@@ -15,7 +15,7 @@ const char *tagBlink = "tagBlink";		//sms para proposito de la tarea del blink
 
 void vTaskBlink(void *pvParameters)
 {
-	int data_receive=0;
+	float data_receive=0;
 	//Declaramos la cola que pasamos como parametro
 	QueueHandle_t local_queque= *(QueueHandle_t *) pvParameters;
 
@@ -26,7 +26,7 @@ void vTaskBlink(void *pvParameters)
 
 	// parapadeo del led
 	while(1){
-		/*
+
     	gpio_set_level(BLINK_GPIO, 1);
     	ESP_LOGI(tagBlink,"Estado del led: %d", gpio_get_level(BLINK_GPIO));
     	vTaskDelay(1000 / portTICK_PERIOD_MS);
@@ -34,12 +34,12 @@ void vTaskBlink(void *pvParameters)
     	gpio_set_level(BLINK_GPIO, 0);
     	ESP_LOGI(tagBlink,"Estado del led: %d", gpio_get_level(BLINK_GPIO));
     	vTaskDelay(1000 / portTICK_PERIOD_MS);
-		*/
+
 
     	// recepción del dato en cola
     	if (uxQueueMessagesWaiting(local_queque)!=0){
     		xQueueReceive(local_queque, &data_receive, pdMS_TO_TICKS(100));
-    		ESP_LOGI(tagBlink,"Dato recibido es: %d",data_receive);
+    		ESP_LOGI(tagBlink,"Dato recibido de voltaje es: %f",data_receive);
     		vTaskDelay(500 / portTICK_PERIOD_MS);
     	}
     	vTaskDelay(50 / portTICK_PERIOD_MS);
