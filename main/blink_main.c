@@ -21,7 +21,6 @@ const char *TAG = "MAIN";				//sms para proposito general
 int memory_task=1024;
 QueueHandle_t GlobalQueue=0;			//declaramos una cola para todas las colas
 
-
 void app_main(void)
 {
 	//creamos la cola para enviar los datos dig del adc con 10 espacios y de tipo int
