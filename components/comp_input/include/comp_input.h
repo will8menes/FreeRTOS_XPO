@@ -1,1 +1,1 @@
-void func(void);
+void vTaskInput(void *pvParameters);

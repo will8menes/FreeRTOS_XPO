@@ -1,1 +1,1 @@
-void func(void);
+void vTaskBlink(void *pvParameters);
