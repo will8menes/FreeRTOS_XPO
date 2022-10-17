@@ -1,0 +1,39 @@
+menu "PZEM_PARAMETERS"
+	config PZEM_RXD
+		int "Pin de conexión tipo Rx"
+		default 16
+		help
+			Se debe especificar el pin correspondiente a la transmisión Rx
+			del sensor PZEM.
+		
+	config PZEM_TXD
+		int "Pin de conexión tipo Tx"
+		default 17
+		help
+			Se debe especificar el pin correspondiente a la transmisión Tx
+			del sensor PZEM.
+			
+	config PZEM_BAUD_RATE
+		int "Baud rate"
+		default 9600
+		help
+			Se debe especificar la velocidad de la tasa de transmisión de datos
+			Use cualquiera de las siguientes opciones
+			2400
+			4800
+			9600
+			14400
+			19200
+			28800
+			115200
+	config PZEM_UART_PORT
+		int "Numero de puerto UART"
+		default 2
+		help
+			Seleccione el puerto UART al que desea conectar su sensor
+			las opciones son:
+			0
+			1
+			2
+	
+endmenu

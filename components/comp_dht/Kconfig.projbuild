@@ -1,0 +1,17 @@
+menu "DHT_PARAMETERS"
+	config DHT_PIN
+		int "Seleccion del pin de conexion de dht"
+		default 13
+		help
+			Se debe especificar un número de pin en que se va a conectar
+			la señal del dht.
+		
+	config SENSOR_TYPE
+		int "Seleccion del tipo de sensor DH21"
+		default 1
+		help
+			Se trata del tipo de sensor que se posee (escoja los valores: 0, 1 o 2)
+			0 DHT_TYPE_DHT11
+			1 DHT_TYPE_AM2301
+			2 DHT_TYPE_SI7021       
+endmenu
